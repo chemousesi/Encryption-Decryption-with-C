@@ -21,34 +21,34 @@ void open_files(void) //ouverture des fichiers
 
     system("CLS");
     info();
-    gotoxy(2, 2); textcolor(GREEN);printf("Write source file name : ") ;textcolor(WHITE);
+    textcolor(LIGHTMAGENTA);
+    gotoxy(6, 1);
+    printf("Welcome to the Encryption <-> Decryption Program ******** BENAKMOUM/BENAZIZA");
+    textcolor(WHITE);
+    gotoxy(11, 3); textcolor(GREEN);printf("Write source file name : ") ;textcolor(WHITE);
     scanf("%40s",&src_file_name) ;
-    gotoxy(2, 4); textcolor(RED);printf("Write the crypted file name : ");textcolor(WHITE);
+    gotoxy(2, 4); textcolor(RED);  printf("Write the destination file name : ");textcolor(WHITE);
     scanf("%40s",&crypted_file_name) ;
-    src_file = fopen(src_file_name ,"rt") ;
+    src_file = fopen(src_file_name ,"rt");
     if (src_file == NULL)
     {
-        gotoxy(5, 4); textcolor(RED);printf("NO source file");textcolor(WHITE);
+        gotoxy(5, 7); textcolor(RED);printf("NO source file");textcolor(WHITE);
     }
 
     crypted_file = fopen(crypted_file_name ,"wt") ;
     if (crypted_file == NULL)
     {
-        gotoxy(5, 4); textcolor(RED);printf("NO Result file");textcolor(WHITE);
+        gotoxy(5, 7); textcolor(RED);printf("NO Result file");textcolor(WHITE);
     }
     system("CLS");
-//    crypted_file = fopen(crypted_file_name ,"wt") ;
-//    if (crypted_file == NULL) printf("NO RESULT FILE");
+
 }
 
 void choix_crypt (void)
 {
     system("CLS");
 
-    textcolor(GREEN);
-    gotoxy(3, 1);
-    printf("\nWelcome to the Encryption Decryption :");
-    textcolor(WHITE);
+
     gotoxy(4, 3);printf("Select the option :");
     gotoxy(2, 5); textcolor(BLUE);printf("\n1-   ");textcolor(WHITE);
     printf("Encrypt a file(c)");
@@ -65,6 +65,7 @@ do {
     }while (choice != 'c' && choice !='d');
 
     printf("%c",choice);
+
     system("CLS");
     set_password();
 
@@ -74,19 +75,60 @@ do {
               if (choice == 'd')
                   {
                         decrypt();
-                        compare();
+                        display_compare();
+                        //compare();
                   }
-
 
 }
 
 void set_password(void)//lire  password .
 {
+    int i = 0;
+    char ch;
+    char pwd[25];
     char lenght ;
-    printf("\nWould you please set your password : ");
-    fgets(password,sizeof password ,stdin);
+    gotoxy(10, 10);
+    textcolor(LIGHTCYAN);
+    printf("Would you please enter your password : ");
+    textcolor(LIGHTRED);
+
+
+    while(1)
+    {
+        ch = getch();
+
+        if (ch == 13/*ENTER */|| ch == 9 /*tab */){
+            pwd[i] = '\0';
+            break;
+        }else if(ch == 8/*Back space */){
+            if (i>0){
+                i--;
+                printf("\b \b");
+            }
+            }else{
+            pwd[i++] = ch;
+            printf("* \b");
+
+            }
+
+
+
+
+
+        //password = pwd;
+    }
+    textcolor(WHITE);
+ printf("\n\n\n\n\nPassword:%s Length %d", pwd, i);
+
+        strcpy(password,pwd);
+
+
+
+
+   // fgets(password,sizeof password ,stdin);
     password_lenght = strlen(password);
     for (lenght=0 ;lenght<password_lenght ;lenght++) password[lenght] = 255 - password[lenght] ;
+
 }
 
 void get_char(void)  /**recuperer un caractere du fichier source*/
@@ -108,6 +150,8 @@ void crypt(void)
 
         }
     }while (end_file != 255);
+    fclose(crypted_file);
+    textcolor(GREEN);printf("\n*********DONE*********\n");textcolor(WHITE);
 }
 
 void code(void)
@@ -174,6 +218,10 @@ void decrypt(void)
     }
 
 fclose(crypted_file);
+fclose(src_file);
+textcolor(GREEN);printf("\n*********DONE*********\n");textcolor(WHITE);
+
+
 }
 
 void decode(void)
@@ -207,7 +255,7 @@ void decode(void)
 
 void print_char(void)       /**insere le texte decrypte*/
 {
-    printf("\nje vais eire : %d\n",src_char);
+    //printf("\nje vais eire : %d\n",src_char);
     fputc(src_char,crypted_file);
 
 
@@ -235,13 +283,13 @@ void compare(void)
     if (test == 1){
 
             textcolor(GREEN);
-            printf("\nYour files are similar");
+            printf("\nYour files are similar\n");
             textcolor(WHITE);
 
     }else{
 
             textcolor(RED);
-            printf("\nYour files are not similar");
+            printf("\nYour files are not similar\n");
             textcolor(WHITE);
     }
 }
@@ -256,60 +304,6 @@ void recommencer (void)
     }
 
 
-
-
-//
-//void menu() /** Menu du programme */
-//{
-//    system("CLS");
-//    textcolor(GREEN);
-//    gotoxy(3, 1);
-//    printf("\nBienvenue dans le program de CRYPTAGE - DECRYPTAGE :");
-//    textcolor(WHITE);
-//    gotoxy(4, 3);printf("Selectionner l'operation :");
-//
-//
-//    gotoxy(2, 5); textcolor(BLUE);printf("\n1-   ");textcolor(WHITE);
-//    printf("Cryptage d'un fichier ");
-//    gotoxy(2, 6); textcolor(BLUE);printf("\n2-   ");textcolor(WHITE);
-//    printf("Decryptage d'un fichier ");
-//
-//    int choix;
-//    scanf("%d", &c);
-//    if (c == 1)
-//    {
-//
-//    }
-//
-//
-//    textcolor(WHITE);
-//
-//
-//}
-
-
-
-//void esi_logo()
-//{
-//textcolor(BLUE);
-//printf("\n                                           __         ");
-//printf("\n                                          |__|        ");
-//textcolor(WHITE);
-//printf("\n                   ______     ______       __         ");
-//printf("\n                   | ____|    |  ___|     |  |        ");
-//printf("\n                   | |        | |         |  |        ");
-//printf("\n                   | |___     | |___      |  |        ");
-//printf("\n                   |  ___|    |___  |     |  |        ");
-//printf("\n                   | |            | |     |  |        ");
-//printf("\n                   | |___     ____| |     |  |        ");
-//printf("\n                   |_____|   |______|     |__|        ");
-//textcolor(BLUE);
-//printf("\n              ***************************************");
-//textcolor(WHITE);
-//
-//
-//}
-//
 void info()
 {
     gotoxy(5, 8);
@@ -324,7 +318,9 @@ void info()
     printf("                          [ss.txt] as a crypted file");
     gotoxy(4, 13);
     printf("                         [sss.txt] as a final file for decryption ");
-
+    gotoxy(5, 14);textcolor(RED);
+    printf("If you want to use your text GO EDIT [s.txt]");
+    textcolor(WHITE);
 
 }
 
@@ -333,15 +329,17 @@ void display_compare(void)
 {
     char choice2;
 
-    printf("Do you wanna compare the first Source file with the result of the decripton ");
-    printf("(y/n)");
+
+    textcolor(LIGHTBLUE); printf("\nDo you wanna compare the files\n");
+    textcolor(WHITE);
+    printf("(y/n)\n\n");
 
     do {
         choice2 = getch();
         rewind(stdin);
     }while (choice2 != 'y' && choice != 'n');
 
-    printf("%c",choice);
+    printf("%c",choice2);
     if (choice2 == 'y')
     {
         compare();

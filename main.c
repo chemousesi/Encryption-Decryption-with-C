@@ -11,8 +11,6 @@ int main()
         initialisation();
         open_files();
         choix_crypt();
-        printf("hi");
-        //display_compare();
 
     return 0;
 

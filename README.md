@@ -13,5 +13,6 @@ file [ss.txt] using some formulas that you can understand through the code.
 
 
 *this code is for learning purposes
-*made by 2 students - me (Chems Eddine Benaziza) and Benakmoum Oussama
-(Student at ECOLE NATIONALE SUPERIEURE D'INFORMATIQUE , ALGER, ALGERIA)
+*made by 2 students - Chems Eddine Benaziza (me) and Benakmoum Oussama
+
+(Students at ECOLE NATIONALE SUPERIEURE D'INFORMATIQUE , ALGER, ALGERIA)

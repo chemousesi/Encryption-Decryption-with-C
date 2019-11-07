@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1572767340 source:c:\prog_c\tp\untitled2.c
+	<stdio.h>
+	<stdlib.h>
+	"Untitled1.h"
+
+1572637071 source:c:\prog_c\tp\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1572639568 c:\prog_c\tp\untitled1.h
+	<stdio.h>
+	<stdlib.h>
+
+1572959883 source:c:\users\expertpc\desktop\cprojects\codage 2.2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1572962207 source:c:\users\expertpc\desktop\cprojects\codage 2.2\untitled2.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Untitled1.h"
+
+1572961030 c:\users\expertpc\desktop\cprojects\codage 2.2\untitled1.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+
+1573029277 source:c:\prog_c\finalversion\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1573030416 source:c:\prog_c\finalversion\untitled2.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"Untitled1.h"
+
+1572977204 c:\prog_c\finalversion\untitled1.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+
+1573074662 source:c:\users\expertpc\desktop\cprojects\codage 2.3 - final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1573073844 source:c:\users\expertpc\desktop\cprojects\codage 2.3 - final\untitled2.c
+	<stdio.h>
+	<stdlib.h>
+	"conio.c"
+	"Untitled1.h"
+
+1572978782 c:\users\expertpc\desktop\cprojects\codage 2.3 - final\conio.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<windows.h>
+	<string.h>
+	"conio.h"
+
+1572978781 c:\users\expertpc\desktop\cprojects\codage 2.3 - final\conio.h
+	<stdio.h>
+
+1573070815 c:\users\expertpc\desktop\cprojects\codage 2.3 - final\untitled1.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+
